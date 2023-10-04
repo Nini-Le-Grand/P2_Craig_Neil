@@ -2,7 +2,7 @@ package com.hemebiotech.analytics;
 
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
+import java.util.TreeMap;
 
 public class WriteSymptomDataToFile implements ISymptomWriter{
     private final String filepath;
@@ -11,7 +11,7 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
         this.filepath = filepath;
     }
     @Override
-    public void WriteSymptoms(HashMap<String, Integer> symptoms) {
+    public void writeSymptoms(TreeMap<String, Integer> symptoms) {
         if(!symptoms.isEmpty() && filepath != null) {
             try {
                 FileWriter writer = new FileWriter (filepath);
@@ -23,6 +23,8 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
             } catch (IOException e) {
                 e.printStackTrace();
             }
+        } else {
+            System.out.println("No symptoms found");
         }
     }
 }

@@ -1,43 +1,24 @@
 package com.hemebiotech.analytics;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.util.HashMap;
+import java.util.List;
+import java.util.TreeMap;
 
 public class AnalyticsCounter {
-	private static int headacheCount = 0;
-	private static int rashCount = 0;
-	private static int pupilCount = 0;
-	
-	public static void main(String args[]) throws Exception {
-		// first get input
-		BufferedReader reader = new BufferedReader (new FileReader("symptoms.txt"));
-		String line = reader.readLine();
+	public HashMap<String, Integer> countSymptoms(List<String> symptoms) {
+		HashMap<String, Integer> symptomCount = new HashMap<>();
 
-		int i = 0;
-		int headCount = 0;
-		while (line != null) {
-			i++;
-			System.out.println("symptom from file: " + line);
-			if (line.equals("headache")) {
-				headCount++;
-				System.out.println("number of headaches: " + headCount);
+		for (String symptom : symptoms) {
+			if(symptomCount.containsKey(symptom)) {
+				symptomCount.put(symptom, symptomCount.get(symptom) + 1);
+			} else {
+				symptomCount.put(symptom, 1);
 			}
-			else if (line.equals("rush")) {
-				rashCount++;
-			}
-			else if (line.contains("pupils")) {
-				pupilCount++;
-			}
-
-			line = reader.readLine();
 		}
-		
-		// next generate output
-		FileWriter writer = new FileWriter ("result.out");
-		writer.write("headache: " + headacheCount + "\n");
-		writer.write("rash: " + rashCount + "\n");
-		writer.write("dialated pupils: " + pupilCount + "\n");
-		writer.close();
+		return symptomCount;
+	}
+
+	public TreeMap<String, Integer> sortSymptoms(HashMap<String, Integer> symptomCount) {
+        return new TreeMap<>(symptomCount);
 	}
 }
