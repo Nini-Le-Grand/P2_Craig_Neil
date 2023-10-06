@@ -6,12 +6,14 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * Treatment of the extraction of data from a file in order to return a raw list
+ */
 public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	private final String filepath;
 
 	/**
-	 *
 	 * @param filepath a full or partial path to file with symptom strings in it, one per line
 	 */
 	public ReadSymptomDataFromFile (String filepath) {
