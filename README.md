@@ -12,5 +12,11 @@ Sample project for OpenClassroom's fundamentals of Java
   - javac com/hemebiotech/analytics/Main.java
   - java com.hemebiotech.analytics.Main
 
-## I.III Documentation
+# II Functionality
+## II.I Resources
+Reads a file named "symptoms.txt" which has one symptom per line
+## II.II output
+Once the program is over, the output is a file named "result.out" with the symptoms and the number of occurrences (one per line)
+
+## III Documentation
 - Open index.html in JavaDoc directory
