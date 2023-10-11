@@ -14,8 +14,8 @@ public class Main {
      * @param args arguments made public
      */
     public static void main(String[] args) {
-        ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("../resources/symptoms.txt");
-        WriteSymptomDataToFile writer = new WriteSymptomDataToFile("../output/result.out");
+        ReadSymptomDataFromFile reader = new ReadSymptomDataFromFile("resources/symptoms.txt");
+        WriteSymptomDataToFile writer = new WriteSymptomDataToFile("output/result.out");
         AnalyticsCounter counter = new AnalyticsCounter();
 
         List<String> symptoms = reader.getSymptoms();

@@ -10,6 +10,8 @@ import java.util.TreeMap;
 public interface ISymptomWriter {
     /**
      * Writes one symptom per line with its number of occurrences from the provided map in a new file
+     * <p>
+     * if no symptoms are found, logs in console that no symptoms are found
      * @param symptomsSorted A sorted map of symptoms (key) with the number of occurrences (value)
      */
     void writeSymptoms(TreeMap<String, Integer> symptomsSorted);

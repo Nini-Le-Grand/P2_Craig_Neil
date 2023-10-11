@@ -18,19 +18,21 @@ public class WriteSymptomDataToFile implements ISymptomWriter{
 
     @Override
     public void writeSymptoms(TreeMap<String, Integer> symptomsSorted) {
-        if(!symptomsSorted.isEmpty() && filepath != null) {
-            try {
-                FileWriter writer = new FileWriter (filepath);
+        if(filepath != null) {
+            if(!symptomsSorted.isEmpty()) {
+                try {
+                    FileWriter writer = new FileWriter (filepath);
 
-                for (String i : symptomsSorted.keySet()) {
-                    writer.write(i + ": " + symptomsSorted.get(i) + "\n");
+                    for (String i : symptomsSorted.keySet()) {
+                        writer.write(i + ": " + symptomsSorted.get(i) + "\n");
+                    }
+                    writer.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                writer.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+            } else {
+                System.out.println("No symptoms found");
             }
-        } else {
-            System.out.println("No symptoms found");
         }
     }
 }
