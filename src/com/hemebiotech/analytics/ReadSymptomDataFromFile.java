@@ -22,7 +22,7 @@ public class ReadSymptomDataFromFile implements ISymptomReader {
 
 	@Override
 	public List<String> getSymptoms() {
-		ArrayList<String> symptoms = new ArrayList<>();
+		List<String> symptoms = new ArrayList<>();
 
 		if (filepath != null) {
 			try {

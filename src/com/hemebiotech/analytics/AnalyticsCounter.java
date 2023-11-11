@@ -2,6 +2,7 @@ package com.hemebiotech.analytics;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.TreeMap;
 
 /**
@@ -13,8 +14,8 @@ public class AnalyticsCounter {
 	 * @param symptoms a raw list string of symptoms
 	 * @return A map of symptoms (key string) and the number of occurrences (value integer)
 	 */
-	public HashMap<String, Integer> countSymptoms(List<String> symptoms) {
-		HashMap<String, Integer> symptomCount = new HashMap<>();
+	public Map<String, Integer> countSymptoms(List<String> symptoms) {
+		Map<String, Integer> symptomCount = new HashMap<>();
 
 		for (String symptom : symptoms) {
 			if(symptomCount.containsKey(symptom)) {
@@ -31,7 +32,7 @@ public class AnalyticsCounter {
 	 * @param symptomCount a map of symptoms (key string) and the number of occurrences (value integer)
 	 * @return An alphabetically sorted map of symptoms (key string) and the number of occurrences (value integer)
 	 */
-	public TreeMap<String, Integer> sortSymptoms(HashMap<String, Integer> symptomCount) {
+	public TreeMap<String, Integer> sortSymptoms(Map<String, Integer> symptomCount) {
         return new TreeMap<>(symptomCount);
 	}
 }
